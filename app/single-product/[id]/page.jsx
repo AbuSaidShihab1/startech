@@ -144,6 +144,19 @@ const specifications = (
   </>
   
   );
+  export async function generateStaticParams() {
+    // You need to fetch the list of products or product IDs
+    const products = [
+      { id: '1' },
+      { id: '2' },
+      // Add more product IDs here
+    ];
+  
+    // Return the static paths for each product's `id`
+    return products.map((product) => ({
+      id: product.id, // id from product object
+    }));
+  }
 const page = () => {
   const { addToCart } = useContext(CartContext);
     const tabs = ["Specification", "Description", "Questions (2)", "Reviews (1)"];
